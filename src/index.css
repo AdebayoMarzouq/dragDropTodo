@@ -1,13 +1,71 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    z-index: -2;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply bg-light-bg1 dark:bg-dark-bg1 text-light-text1 dark:text-dark-text1;
+}
+body::after {
+  @apply bg-[url("./images/bg-mobile-light.jpg")] dark:bg-[url("./images/bg-mobile-dark.jpg")] md:bg-[url("./images/bg-desktop-light.jpg")] dark:md:bg-[url("./images/bg-desktop-dark.jpg")] h-[200px] w-full bg-cover bg-center bg-no-repeat;
+}
+
+#root {
+  @apply max-w-3xl mx-auto px-4 md:px-8 pt-8 pb-12 min-h-screen;
+}
+
+[type='text'],
+[type='search'],
+select,
+textarea {
+  @apply w-full border-0 shadow-md rounded-md focus:border-none focus:ring-0 focus:outline-none placeholder:text-light-text2 dark:placeholder:text-dark-text2;
+}
+
+.colors {
+  @apply bg-light-bg2 dark:bg-dark-bg2;
+}
+
+.text1 {
+  @apply text-light-text1 dark:text-dark-text1;
+}
+
+.text2 {
+  @apply text-light-text2 dark:text-dark-text2;
+}
+.text3 {
+  @apply text-light-text3 dark:text-dark-text3;
+}
+
+.check {
+  @apply border border-light-text3 dark:border-dark-texts rounded-full w-5 h-5;
+}
+
+.bgGradient {
+  @apply bg-gradient-to-br from-[#57ddff] to-[#c058f3];
+}
+
+/* .bdGradient {
+  border-color: linear-gradient(from top to bottom);
+} */
+
+.hoverr {
+  @apply hover:text-light-text1 dark:hover:text-dark-text1;
 }
