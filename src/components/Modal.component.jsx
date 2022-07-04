@@ -62,43 +62,47 @@ const Modal = () => {
           exit='hidden'
         >
           <motion.div
-            className='colors text1 relative max-w-sm md:max-w-lg mx-auto py-8 px-2 rounded-md'
+            className='colors text1 relative max-w-xs md:max-w-lg mx-auto px-2 pt-10 pb-4 rounded-md'
             variants={modal}
           >
             {editOn ? (
               <>
-                <form onSubmit={handleSubmit} className='relative w-full h-16'>
-                  <input
-                    type='text'
-                    className='colors text1 w-full h-full px-4'
-                    placeholder='Edit todo item...'
-                    value={input}
-                    onChange={(e) => {
-                      setInput(e.target.value)
-                    }}
-                  />
-                  <button type='button' onClick={handleSubmit}>
-                    <svg
-                      className='absolute top-4 right-4 w-6 h-6 text-light-text2 dark:text-dark-text2 hoverr transform rotate-90'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <AnimatePresence>
-                        <motion.path
-                          variants={svgVariant}
-                          initial='a'
-                          animate='b'
-                          exit='a'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'
-                        />
-                      </AnimatePresence>
-                    </svg>
-                  </button>
+                <form
+                  onSubmit={handleSubmit}
+                  className='relative w-full h-48 border'
+                >
+                  <div className='absolute w-full h-full pb-8'>
+                    <textarea
+                      className='colors text1 w-full h-full px-2 shadow-none rounded-none'
+                      placeholder='Edit todo item...'
+                      value={input}
+                      onChange={(e) => {
+                        setInput(e.target.value)
+                      }}
+                    ></textarea>
+                    <button type='button' onClick={handleSubmit}>
+                      <svg
+                        className='absolute bottom-1 right-3 w-6 h-6 text-light-text2 dark:text-dark-text2 hoverr transform rotate-90'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                      >
+                        <AnimatePresence>
+                          <motion.path
+                            variants={svgVariant}
+                            initial='a'
+                            animate='b'
+                            exit='a'
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'
+                          />
+                        </AnimatePresence>
+                      </svg>
+                    </button>
+                  </div>
                 </form>
                 <button
                   className='absolute text2 dark:text-dark-text3 hoverr top-2 left-2'

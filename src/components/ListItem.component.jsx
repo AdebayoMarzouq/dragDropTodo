@@ -19,7 +19,7 @@ const Item = ({ item }) => {
           {item.isCompleted && <ReactComponent />}
         </div>
         <div
-          className={`flex-grow leading-tight block truncate text-xs md:text-base cursor-grab ${
+          className={`flex-grow leading-tight block truncate text-sm md:text-base cursor-grab ${
             item.isCompleted &&
             'line-through text-light-text2 dark:text-dark-text2'
           }`}

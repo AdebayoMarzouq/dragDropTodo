@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useAppContext } from '../context'
 
 const Bottom = () => {
-  const { items, clearCompleted } = useAppContext()
+  const { filteredItems, clearCompleted, currentTab } = useAppContext()
   return (
     <motion.div
       initial={{ x: '-100vw' }}
@@ -19,7 +19,9 @@ const Bottom = () => {
       className='colors text2 select-none h-16 w-full px-4 flex items-center justify-between rounded-b-md border-t border-light-text3 dark:border-dark-texts'
     >
       <p>
-        <span>{items.length} </span>items left
+        <span>{filteredItems().length} </span>
+        {filteredItems().length > 1 ? 'items' : 'item'}{' '}
+        {currentTab === 'all' ? '' : currentTab}
       </p>
       <button
         className='cursor-pointer hover:text-light-text1 dark:hover:text-dark-text1'
