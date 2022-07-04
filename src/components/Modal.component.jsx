@@ -136,7 +136,9 @@ const Modal = () => {
                   >
                     {status && <ReactComponent />}
                   </div>
-                  <div className='col-span-11'>{input || current.todo}</div>
+                  <div className='col-span-11 break-all'>
+                    {input || current.todo}
+                  </div>
                 </div>
                 <button
                   className='absolute text2 dark:text-dark-text2 hoverr top-2 left-2'

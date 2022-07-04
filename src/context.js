@@ -72,7 +72,11 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     const el = document.getElementsByTagName('html')[0]
-    el.classList.toggle('dark')
+    if (darkMode) {
+      el.classList.add('dark')
+    } else {
+      el.classList.remove('dark')
+    }
   }, [darkMode])
 
   useEffect(() => {
